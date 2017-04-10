@@ -14,20 +14,24 @@ class MessagesController extends Controller
 
     public function send(Request $request)
     {
-        $message = new Message;
-        $message->author = $request->author;
-        if ( $request->topic ){
-            $topic = $request->topic;
+        if($request->author && $request->content)
+        {
+            $message = new Message;
+            $message->author = $request->author;
+            if ( $request->topic ){
+                $topic = $request->topic;
+            } else {
+                $topic = 'No topic specified';
+            }
+            $message->topic = $topic;
+            $content = $request->content;
+            $content = str_replace("\r\n", "<br>", $content);
+            $message->content = $content;
+            $message->save();
+            return view('welcome');
         } else {
-            $topic = 'Not Specified';
+            return view('message', ['feedback' => 'Please give me at least a name and a message.']);
         }
-        $message->topic = $topic;
-        $content = $request->content;
-        $content = str_replace("\r\n", "<br>", $content);
-        $message->content = $content;
-        $message->save();
-        
-        return view('message');
     }
 
     public function read()

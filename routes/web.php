@@ -16,6 +16,9 @@ Route::post('/message/{id}', 'MessagesController@delete')->middleware('auth');
 
 Route::get('/message', 'MessagesController@index');
 Route::get('/message/read', 'MessagesController@read');
+Route::get('/potato', function () {
+    return view('potato');
+});
 
 Route::get('/', function () {
     return view('welcome');

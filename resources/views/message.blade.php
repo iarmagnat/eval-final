@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container" id="message">
+
+    @if (isset($feedback))
+        <span> {{$feedback}} </span>
+    @endif
+
     {!! Form::open(['url' => '/message', 'method' => 'post']) !!}
 
         <div id="topBloc">
