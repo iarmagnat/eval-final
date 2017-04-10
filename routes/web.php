@@ -11,7 +11,10 @@
 |
 */
 
+Route::post('/message', 'MessagesController@send');
+
 Route::get('/message', 'MessagesController@index');
+Route::get('/message/read', 'MessagesController@read');
 
 Route::get('/', function () {
     return view('welcome');

@@ -10,3 +10,33 @@
     text-decoration: none;
     color: seagreen;
 }
+
+#message input, #message textarea{
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    padding: 5px;
+}
+
+#message textarea{
+    width: 100%;
+    resize: none;
+    margin-bottom: 15px;
+    height: 5em;
+}
+
+#topBlock{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#topBloc *{
+    width: 49%;
+}
+
+#message input[type=submit]{
+    float: right;
+    background-color: #2579A9;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
