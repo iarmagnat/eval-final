@@ -38,4 +38,13 @@ class MessagesController extends Controller
         }
         return view('home');
     }
+
+    public function delete($id)
+    {
+        if(Auth::user()->role === 'ADMIN')
+        {
+            Message::destroy($id);
+            return redirect('/message/read');
+        }
+    }
 }

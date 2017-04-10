@@ -9,6 +9,12 @@
         </div>
 
         <div class="content">{!!$message->content!!}</div>
+
+        {!! Form::open(['url' => "/message/$message->id", 'method' => 'post']) !!}
+
+            {{ Form::submit('delete') }}
+
+        {!! Form::close() !!}
         
         <hr>
     @endforeach

@@ -12,6 +12,7 @@
 */
 
 Route::post('/message', 'MessagesController@send');
+Route::post('/message/{id}', 'MessagesController@delete')->middleware('auth');
 
 Route::get('/message', 'MessagesController@index');
 Route::get('/message/read', 'MessagesController@read');
